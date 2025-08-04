@@ -1,8 +1,8 @@
 import pytest
 import asyncio
 
-from pychan import chan, close, split, go
-from pychan.exceptions import ChannelClosed
+from pychanio import chan, close, split, go
+from pychanio.exceptions import ChannelClosed
 
 
 @pytest.mark.asyncio

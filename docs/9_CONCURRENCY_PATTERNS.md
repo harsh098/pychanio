@@ -1,13 +1,13 @@
 
 # Chapter 9: Concurrency Patterns
 
-In this chapter, we explore powerful concurrency patterns enabled by `pychan`. These patterns mirror familiar idioms from Go, such as fan-in, fan-out, graceful shutdown, and timeouts. The goal is to equip you with practical tools for building robust, expressive concurrent programs in Python.
+In this chapter, we explore powerful concurrency patterns enabled by `pychanio`. These patterns mirror familiar idioms from Go, such as fan-in, fan-out, graceful shutdown, and timeouts. The goal is to equip you with practical tools for building robust, expressive concurrent programs in Python.
 
 ---
 
 ## 🔀 Fan-In
 
-Fan-in is a pattern where multiple producers send data into a single consumer. `pychan.select()` enables clean coordination across these inputs.
+Fan-in is a pattern where multiple producers send data into a single consumer. `pychanio.select()` enables clean coordination across these inputs.
 
 ### Example
 
@@ -58,7 +58,7 @@ Each worker receives messages from the shared channel concurrently.
 To stop workers or loops cleanly, you can use sentinels like `DONE` or detect when a channel is closed.
 
 ```python
-from pychan.sentinels import DONE
+from pychanio.sentinels import DONE
 
 async def shutdown_listener(done_ch):
     async for msg in done_ch:
@@ -84,7 +84,7 @@ go(shutdown_signal)
 
 ## ⏱ Timeouts and Defaults
 
-In real systems, you often want to avoid waiting forever. `pychan.select()` provides both `timeout` and `default` handlers:
+In real systems, you often want to avoid waiting forever. `pychanio.select()` provides both `timeout` and `default` handlers:
 
 ```python
 result = await select(

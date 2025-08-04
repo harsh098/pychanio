@@ -1,5 +1,5 @@
 import asyncio
-from pychan import (
+from pychanio import (
     chan,
     close,
     split,
@@ -7,7 +7,7 @@ from pychan import (
     select,
     nil,
 )
-from pychan.sentinels import DONE
+from pychanio.sentinels import DONE
 
 
 async def producer(name: str, ch) -> None:

@@ -1,6 +1,6 @@
-## Chapter 7: Sentinels - Control Signals in PyChan
+## Chapter 7: Sentinels - Control Signals in pychanio
 
-In complex concurrent systems, it’s not enough to send only data between goroutines-**we often need to signal intent**, such as *shutdown*, *cancellation*, or *heartbeat*. PyChan offers a clean and idiomatic way to accomplish this using **sentinels**.
+In complex concurrent systems, it’s not enough to send only data between goroutines-**we often need to signal intent**, such as *shutdown*, *cancellation*, or *heartbeat*. pychanio offers a clean and idiomatic way to accomplish this using **sentinels**.
 
 ---
 
@@ -16,9 +16,9 @@ These are critical for implementing robust shutdown signals, cancellation of ope
 
 ---
 
-### Predefined Sentinels in PyChan
+### Predefined Sentinels in pychanio
 
-PyChan provides three built-in signals in `pychan.sentinels`:
+pychanio provides three built-in signals in `pychanio.sentinels`:
 
 | Sentinel    | Purpose                            |
 | ----------- | ---------------------------------- |
@@ -27,7 +27,7 @@ PyChan provides three built-in signals in `pychan.sentinels`:
 | `HEARTBEAT` | Used for liveness or ping signals  |
 
 ```python
-from pychan.sentinels import DONE, CANCEL, HEARTBEAT
+from pychanio.sentinels import DONE, CANCEL, HEARTBEAT
 ```
 
 ---
@@ -35,8 +35,8 @@ from pychan.sentinels import DONE, CANCEL, HEARTBEAT
 ### Example: Sending a Shutdown Signal
 
 ```python
-from pychan import chan, close
-from pychan.sentinels import DONE
+from pychanio import chan, close
+from pychanio.sentinels import DONE
 
 async def worker(ch):
     async for msg in ch:
@@ -59,7 +59,7 @@ await worker(ch)
 Use the utility function `is_signal(obj)` to identify if a received message is a sentinel:
 
 ```python
-from pychan.sentinels import is_signal
+from pychanio.sentinels import is_signal
 
 async for msg in ch:
     if is_signal(msg):
@@ -77,8 +77,8 @@ This avoids hard-coding identity checks (`msg is ...`) and lets you apply generi
 Sentinels pair especially well with `select()` to provide structured exits for pipelines:
 
 ```python
-from pychan import select
-from pychan.sentinels import DONE
+from pychanio import select
+from pychanio.sentinels import DONE
 
 async def fan_in_consumer(ch1, ch2, done):
     while True:
@@ -111,7 +111,7 @@ While you *can* use plain strings like `"done"` or `"cancel"`, sentinels provide
 You can define your own using the `Sentinel` class:
 
 ```python
-from pychan.sentinels import Sentinel
+from pychanio.sentinels import Sentinel
 
 RETRY = Sentinel("RETRY")
 ```

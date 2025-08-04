@@ -1,6 +1,6 @@
 # Chapter 5: Goroutines in Python with `go(...)`
 
-In Go, goroutines are lightweight concurrent functions. In `pychan`, we offer a similar primitive using the `go(...)` helper function. This allows you to spawn background tasks easily within Python’s `asyncio` framework.
+In Go, goroutines are lightweight concurrent functions. In `pychanio`, we offer a similar primitive using the `go(...)` helper function. This allows you to spawn background tasks easily within Python’s `asyncio` framework.
 
 ---
 
@@ -9,7 +9,7 @@ In Go, goroutines are lightweight concurrent functions. In `pychan`, we offer a 
 The `go` function is a thin wrapper over `asyncio.create_task()` that starts an asynchronous coroutine in the background - much like launching a goroutine in Go.
 
 ```python
-from pychan import go
+from pychanio import go
 
 go(coro, *args, **kwargs)
 ```
@@ -22,7 +22,7 @@ go(coro, *args, **kwargs)
 
 ```python
 import asyncio
-from pychan import go
+from pychanio import go
 
 async def worker(name):
     for i in range(3):
@@ -63,7 +63,7 @@ B working 2
 `go(...)` becomes even more powerful when combined with `chan()` and `select(...)`:
 
 ```python
-from pychan import chan, go
+from pychanio import chan, go
 
 async def sender(ch):
     ch << "hello"

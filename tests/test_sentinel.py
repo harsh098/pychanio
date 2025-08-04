@@ -1,4 +1,4 @@
-from pychan.sentinels import DONE, CANCEL, HEARTBEAT, is_signal, Sentinel
+from pychanio.sentinels import DONE, CANCEL, HEARTBEAT, is_signal, Sentinel
 
 
 def test_is_signal_true_for_builtins():

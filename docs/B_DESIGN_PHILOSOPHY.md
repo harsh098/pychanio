@@ -1,11 +1,11 @@
-# Design Philosophy of PyChan
+# Design Philosophy of pychanio
 
-PyChan is a concurrency library that aims to bring Go-style channel-based programming and non-deterministic `select` semantics to Python's `asyncio` ecosystem. The design philosophy behind PyChan is guided by two primary goals:
+pychanio is a concurrency library that aims to bring Go-style channel-based programming and non-deterministic `select` semantics to Python's `asyncio` ecosystem. The design philosophy behind pychanio is guided by two primary goals:
 
 1. **Provide Go-like concurrency semantics.**
 2. **Preserve idiomatic Python style and ecosystem compatibility.**
 
-This document outlines how these goals have been achieved, the trade-offs involved, and the core principles that shape PyChan.
+This document outlines how these goals have been achieved, the trade-offs involved, and the core principles that shape pychanio.
 
 ---
 
@@ -21,7 +21,7 @@ This document outlines how these goals have been achieved, the trade-offs involv
 ### Select Blocks
 
 * Inspired directly by Go's `select {}` construct.
-* PyChan provides a `select()` function which accepts multiple awaitable cases with handlers, an optional `default`, and a `timeout`.
+* pychanio provides a `select()` function which accepts multiple awaitable cases with handlers, an optional `default`, and a `timeout`.
 * Execution is **non-deterministic**, enabling realistic race behavior across multiple channels.
 
 ### Goroutines
@@ -51,7 +51,7 @@ This document outlines how these goals have been achieved, the trade-offs involv
 
 ### No Framework, Just `asyncio`
 
-* PyChan is a library, not a framework. There is no runtime, lifecycle manager, or event loop replacement.
+* pychanio is a library, not a framework. There is no runtime, lifecycle manager, or event loop replacement.
 * Integrates seamlessly into existing asyncio applications and third-party libraries.
 
 ### DSL That Feels Native
@@ -67,7 +67,7 @@ This document outlines how these goals have been achieved, the trade-offs involv
 
 ### Explicit, Composable, Readable
 
-* PyChan avoids black-box abstractions.
+* pychanio avoids black-box abstractions.
 * Promotes composability by exposing primitives (channels, selects, sentinels) rather than frameworks.
 * All primitives are interoperable with `asyncio`’s `Task`, `Future`, and coroutines.
 
@@ -86,12 +86,12 @@ This document outlines how these goals have been achieved, the trade-offs involv
 
 ## Summary
 
-PyChan is built with **respect for both Go's concurrency model** and **Python’s language philosophy**. It neither tries to turn Python into Go nor treats Python as an afterthought. Instead, it creates a bridge between these two paradigms:
+pychanio is built with **respect for both Go's concurrency model** and **Python’s language philosophy**. It neither tries to turn Python into Go nor treats Python as an afterthought. Instead, it creates a bridge between these two paradigms:
 
 * Offering **Go’s expressive concurrency** tools
 * While remaining **unapologetically Pythonic** in code style and usage
 
-By staying minimal, composable, and explicit, PyChan lets Python developers adopt channel-based thinking without abandoning the ecosystem or learning curve they've already invested in.
+By staying minimal, composable, and explicit, pychanio lets Python developers adopt channel-based thinking without abandoning the ecosystem or learning curve they've already invested in.
 
 ---
 

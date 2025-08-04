@@ -1,6 +1,6 @@
 # Chapter 4: Buffered vs Unbuffered Channels
 
-One of the most powerful aspects of `pychan` is its support for **buffered** and **unbuffered** channels. These determine the channel's capacity and control how coroutines interact with each other-whether they must block during sends and receives.
+One of the most powerful aspects of `pychanio` is its support for **buffered** and **unbuffered** channels. These determine the channel's capacity and control how coroutines interact with each other-whether they must block during sends and receives.
 
 ---
 
@@ -12,7 +12,7 @@ By default, `chan()` creates an **unbuffered** channel:
 ch = chan()
 ```
 
-Currently in `pychan`, unbuffered channels behave like buffered channels with a size of 0-but do **not** yet block the sender until a receiver is ready (like in Go). This behavior is **planned** for future versions.
+Currently in `pychanio`, unbuffered channels behave like buffered channels with a size of 0-but do **not** yet block the sender until a receiver is ready (like in Go). This behavior is **planned** for future versions.
 
 **Note:** In the current implementation, setting the channel capacity to 0 results in behavior equivalent to an **infinite buffer** under the hood. This is a workaround until proper blocking semantics are implemented for unbuffered channels.
 
@@ -34,7 +34,7 @@ To simulate blocking behavior until a receiver is ready, you can use an `asyncio
 
 ```python
 import asyncio
-from pychan import chan, go
+from pychanio import chan, go
 
 async def sender(ch, sync):
     print("sending...")
@@ -79,7 +79,7 @@ Buffered channels allow the sender to proceed without immediately blocking, up t
 
 ```python
 import asyncio
-from pychan import chan, go, close
+from pychanio import chan, go, close
 
 async def producer(ch):
     for i in range(3):

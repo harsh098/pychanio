@@ -1,12 +1,12 @@
 # Channel Types and Interfaces
 
-`pychan` supports multiple channel types to model safe communication across coroutines. In this chapter, we'll explore the available channel interfaces and learn how to control access using the `split()` function.
+`pychanio` supports multiple channel types to model safe communication across coroutines. In this chapter, we'll explore the available channel interfaces and learn how to control access using the `split()` function.
 
 ***
 
 ## Channel Types
 
-At the core, all channels in `pychan` are full-duplex (send + receive). But you can split them into directional views for better safety and intent clarity:
+At the core, all channels in `pychanio` are full-duplex (send + receive). But you can split them into directional views for better safety and intent clarity:
 
 ### 1. Full-Duplex Channel
 
@@ -98,7 +98,7 @@ This models the Go pattern of passing `chan<-` and `<-chan` types to coroutines,
 
 ```python
 import asyncio
-from pychan import chan, split, go
+from pychanio import chan, split, go
 
 async def producer(send_ch):
     for i in range(5):

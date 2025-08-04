@@ -15,7 +15,7 @@
 ## 🔄 Select & Communication Control
 
 * [Select Semantics and Timeouts](6_SELECT_BLOCKS.md)
-* [Sentinels - Control Signals in PyChan](7_SENTINELS.md)
+* [Sentinels - Control Signals in pychanio](7_SENTINELS.md)
 * [Blocking and Non-Blocking Operations](8_BLOCKING_AND_NON_BLOCKING.md)
 
 ## 🚦 Patterns and Practices

@@ -1,7 +1,7 @@
 import pytest
 
-from pychan import chan, select
-from pychan.sentinels import DONE
+from pychanio import chan, select
+from pychanio.sentinels import DONE
 
 
 @pytest.mark.asyncio

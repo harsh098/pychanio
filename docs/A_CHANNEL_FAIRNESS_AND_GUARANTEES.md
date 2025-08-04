@@ -3,7 +3,7 @@
 
 Channel-based concurrency introduces questions about fairness, ordering, and delivery guarantees-especially in systems with multiple producers, consumers, or `select()` blocks competing over shared channels.
 
-In `pychan`, we follow Go-inspired semantics where possible, but also document any deviations explicitly. This chapter discusses what guarantees are provided today, and which are deferred to future versions.
+In `pychanio`, we follow Go-inspired semantics where possible, but also document any deviations explicitly. This chapter discusses what guarantees are provided today, and which are deferred to future versions.
 
 ---
 
@@ -33,7 +33,7 @@ ch << "oops"  # Raises ChannelClosed
 
 ## 2. FIFO Ordering
 
-Each `pychan` channel uses an internal `asyncio.Queue`, which guarantees **FIFO (first-in-first-out)** ordering:
+Each `pychanio` channel uses an internal `asyncio.Queue`, which guarantees **FIFO (first-in-first-out)** ordering:
 
 ```python
 ch = chan()
@@ -53,7 +53,7 @@ This guarantee **applies per channel**, but not across channels.
 
 ### ❌ No Strong Fairness Across Select Cases
 
-When multiple channel operations are passed to `select(...)`, `pychan` **randomly chooses one** of the ready cases. This means:
+When multiple channel operations are passed to `select(...)`, `pychanio` **randomly chooses one** of the ready cases. This means:
 
 * You cannot assume round-robin scheduling
 * Some branches may be selected more frequently than others
@@ -82,7 +82,7 @@ If fairness is required, it must be enforced by user code (e.g., shuffle cases m
 
 ## 4. Unbuffered Channels ≠ Blocking (Yet)
 
-Unlike Go, **unbuffered channels in `pychan` do not currently block the sender** until a receiver is ready.
+Unlike Go, **unbuffered channels in `pychanio` do not currently block the sender** until a receiver is ready.
 
 Instead, `chan()` (with capacity = 0) behaves as if it has an **infinite buffer**.
 
@@ -185,6 +185,6 @@ Future enhancements may include:
 * Weighted or priority-based select
 * Explicit fairness guarantees for select blocks
 
-For now, `pychan` prioritizes **clarity and simplicity**, matching Go's concurrency model where possible while documenting deviations clearly.
+For now, `pychanio` prioritizes **clarity and simplicity**, matching Go's concurrency model where possible while documenting deviations clearly.
 
 ---

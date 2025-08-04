@@ -1,6 +1,6 @@
 # Chapter 6: Select Blocks for Non-Blocking Logic
 
-The `select()` function in **PyChan** brings Go-style non-deterministic concurrency control to Python’s `asyncio`. This chapter explores the `select` block’s design, semantics, and practical usage.
+The `select()` function in **pychanio** brings Go-style non-deterministic concurrency control to Python’s `asyncio`. This chapter explores the `select` block’s design, semantics, and practical usage.
 
 ---
 

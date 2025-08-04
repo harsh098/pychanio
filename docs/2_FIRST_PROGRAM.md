@@ -1,10 +1,10 @@
 # Chapter 2: Your First Channel Program
 
-Let's build a simple producer-consumer example using `pychan`.
+Let's build a simple producer-consumer example using `pychanio`.
 
 ```python
 import asyncio
-from pychan import chan, go, close
+from pychanio import chan, go, close
 
 async def producer(ch):
     for i in range(3):

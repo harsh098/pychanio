@@ -1,6 +1,6 @@
 # Chapter 8: Blocking and Non-blocking Operations
 
-In this chapter, we explore **how and when operations on channels block** in PyChan, and how to structure your concurrency logic around these behaviors.
+In this chapter, we explore **how and when operations on channels block** in pychanio, and how to structure your concurrency logic around these behaviors.
 
 Understanding blocking behavior is critical to writing predictable and performant concurrent code. It determines **how tasks wait**, **when they yield**, and **how control flows** across coroutines.
 
@@ -8,7 +8,7 @@ Understanding blocking behavior is critical to writing predictable and performan
 
 ## Overview
 
-Every operation on a channel in `pychan` is either:
+Every operation on a channel in `pychanio` is either:
 
 * **Blocking** - waits until the operation completes.
 * **Non-blocking** - initiates the operation and lets the caller proceed without waiting.
@@ -104,7 +104,7 @@ It mimics Go's `val := <-ch` syntax.
 
 ## Non-blocking Receive via Select
 
-PyChan doesn't provide a dedicated `try_receive()` or `.empty()` check.
+pychanio doesn't provide a dedicated `try_receive()` or `.empty()` check.
 
 However, non-blocking receive is best expressed using `select(...)`:
 
@@ -166,4 +166,4 @@ Nil channels are useful in scenarios like:
 
 ## Coming Up Next
 
-Now that you understand how blocking and non-blocking operations work in `pychan`, we can dive into **Concurrency Patterns** - building blocks like fan-in, fan-out, pipelines, and pub-sub.
+Now that you understand how blocking and non-blocking operations work in `pychanio`, we can dive into **Concurrency Patterns** - building blocks like fan-in, fan-out, pipelines, and pub-sub.
