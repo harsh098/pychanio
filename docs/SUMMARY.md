@@ -25,4 +25,4 @@
 
 ## 🧠 Under the Hood
 
-* [Design Philosophy](under-the-hood/design-philosophy.md)
+* [Design Philosophy](B_DESIGN_PHILOSOPHY.md)
