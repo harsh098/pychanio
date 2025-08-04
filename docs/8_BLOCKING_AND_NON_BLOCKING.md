@@ -23,10 +23,9 @@ You can choose between the two depending on **what kind of control** and **task 
 await ch.send(value)
 ```
 
-This form of send **blocks** until one of the following happens:
-
-* The channel has room (if buffered), or
-* A receiver is ready to receive the value (if unbuffered)
+This form of send **blocks** until the value is pushed successfully into the underlying queue.
+Useful when
+1. You want a guarantee that the item is successfully sent to the channel.
 
 ### Use Cases
 
@@ -45,7 +44,7 @@ ch << value  # equivalent to asyncio.create_task(ch.send(value))
 This operation **does not block**. Instead, it:
 
 * Schedules `ch.send(value)` as a background task
-* Returns immediately
+* Returns an `asyncio.Task` immediately
 
 ### Use Cases
 

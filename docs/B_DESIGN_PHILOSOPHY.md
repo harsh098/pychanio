@@ -31,7 +31,7 @@ This document outlines how these goals have been achieved, the trade-offs involv
 
 ### Nil Channels
 
-* Nil channels (`NilChannel`) are explicitly non-operational and useful for dynamically disabling branches inside select blocks.
+* Nil channels (`Channel(_is_nil=True)`) are explicitly non-operational and useful for dynamically disabling branches inside select blocks.
 
 ### Sentinels
 
