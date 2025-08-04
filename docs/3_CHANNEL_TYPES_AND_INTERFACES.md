@@ -1,8 +1,8 @@
-# Chapter 3: Channel Types and Interfaces
+# Channel Types and Interfaces
 
 `pychan` supports multiple channel types to model safe communication across coroutines. In this chapter, we'll explore the available channel interfaces and learn how to control access using the `split()` function.
 
----
+***
 
 ## Channel Types
 
@@ -57,9 +57,9 @@ Sending to a receive-only channel is not permitted.
 
 ### 4. Nil Channels
 
-> `nil` channels will be discussed in [Chapter 4.](CONCURRENCY_PATTERNS.md)
+> `nil` channels will be discussed in [9\_CONCURRENCY\_PATTERNS.md](9_CONCURRENCY_PATTERNS.md "mention")
 
----
+***
 
 ## Using `split()` Safely
 
@@ -82,17 +82,17 @@ async def consumer(recv_ch):
 
 This models the Go pattern of passing `chan<-` and `<-chan` types to coroutines, helping avoid accidental misuse.
 
----
+***
 
 ## Channel Capabilities Summary
 
-| Channel     | Can Send | Can Receive | Datatype |
-| ----------- | -------- | ----------- | --------- |
-| `chan()`    | ✅        | ✅           | `ChannelDSL` |
-| `send_only` | ✅        | ❌           | `SendOnlyChannel` |
+| Channel     | Can Send | Can Receive | Datatype             |
+| ----------- | -------- | ----------- | -------------------- |
+| `chan()`    | ✅        | ✅           | `ChannelDSL`         |
+| `send_only` | ✅        | ❌           | `SendOnlyChannel`    |
 | `recv_only` | ❌        | ✅           | `ReceiveOnlyChannel` |
 
----
+***
 
 ## Practical Example
 
@@ -119,7 +119,7 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
----
+***
 
 ## Coming Up Next
 
