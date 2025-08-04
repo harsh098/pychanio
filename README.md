@@ -50,7 +50,7 @@ Find the docs here at:
 
 ## 🛠 Requirements
 
-* Python 3.8+
+* Python 3.12+
 * `asyncio`
 
 ## 📄 License
