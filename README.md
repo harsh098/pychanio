@@ -11,7 +11,7 @@ Go-style **channels** and **select blocks** for Python’s `asyncio`.
 - `<<` and `>>` DSL syntax for send/receive
 - Go-style `select()` block with timeout and default
 - Background goroutines with `go(fn)`
-- Built-in sentinels for clean shutdown
+- Built-in sentinels for clean signalling such as shutdown, heartbeat etc.
 - Works with native `asyncio`
 
 ## 📦 Installation
