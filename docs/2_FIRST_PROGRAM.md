@@ -52,5 +52,3 @@ This small example shows how channels coordinate producer-consumer patterns natu
 ## Next Chapter
 
 We'll now explore different **types of channels** (full-duplex, send-only, receive-only), and how to use `split()` to control access.
-
-👉 **Continue to Chapter 3: Channel Types and Interfaces**

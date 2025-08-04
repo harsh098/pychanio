@@ -127,4 +127,3 @@ received: 2
 
 In the next chapter, we'll cover the use of `go(...)` to run background tasks, and how it relates to Go’s goroutines.
 
-👉 **Continue to Chapter 5: Goroutines in Python with `go(...)`)**

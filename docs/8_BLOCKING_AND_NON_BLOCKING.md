@@ -167,5 +167,3 @@ Nil channels are useful in scenarios like:
 ## Coming Up Next
 
 Now that you understand how blocking and non-blocking operations work in `pychan`, we can dive into **Concurrency Patterns** - building blocks like fan-in, fan-out, pipelines, and pub-sub.
-
-👉 **Continue to Chapter 9: Concurrency Patterns**

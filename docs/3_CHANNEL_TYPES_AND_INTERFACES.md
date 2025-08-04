@@ -57,7 +57,7 @@ Sending to a receive-only channel is not permitted.
 
 ### 4. Nil Channels
 
-> `nil` channels will be discussed later in this guide.
+> `nil` channels will be discussed in [Chapter 4.](CONCURRENCY_PATTERNS.md)
 
 ---
 

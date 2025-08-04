@@ -86,4 +86,3 @@ asyncio.run(main())
 
 Now that you know how to launch concurrent tasks, in the next chapter we’ll explore `select(...)` - the foundation for writing non-blocking multi-channel logic, similar to Go’s `select` statement.
 
-👉 **Continue to Chapter 6: Select Blocks for Non-Blocking Logic**

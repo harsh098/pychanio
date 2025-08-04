@@ -74,4 +74,3 @@ Don't use it when:
 
 In the next chapter, we'll walk through how to install `pychan` and verify your environment is ready to write concurrent code using channels.
 
-👉 **Continue to Chapter 1: Installation**
