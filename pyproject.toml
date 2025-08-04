@@ -1,10 +1,13 @@
 [project]
 name = "pychanio"
-version = "0.1.0"
+version = "0.1.1"
 description = "Go-style channels and select blocks for asyncio in Python."
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.12"
+authors = [
+    {name = "Harsh Mishra", email = "hmisraji07@gmail.com"}
+]
 dependencies = []
 
 [project.scripts]
@@ -28,3 +31,4 @@ dev-dependencies = [
 [project.urls]
 Homepage = "https://github.com/harsh098/pychanio"
 Issues = "https://github.com/harsh098/pychanio/issues"
+Documentation = "https://harsh-mishra.gitbook.io/pychanio"
