@@ -84,7 +84,7 @@ from pychanio import chan, go, close
 async def producer(ch):
     for i in range(3):
         print(f"sending: {i}")
-        ch << i  # blocks if buffer is full
+        ch << i  # Schedules a send in the background, the task might get blocked in the background, if the buffer is full.
     close(ch)
 
 async def consumer(ch):
