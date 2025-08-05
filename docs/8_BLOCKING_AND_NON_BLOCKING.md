@@ -50,9 +50,14 @@ This operation **does not block**. Instead, it:
 
 * Fire-and-forget style messaging
 * When backpressure is not a concern
+* Logging, metrics pipelines, or loosely coupled fan-out
 * Useful in *select* blocks for concurrent sends
 
-⚠️ **Caution**: Since this sends in the background, any error during send (e.g., closed channel) **won’t be caught immediately**.
+### ⚠️ Caveats
+
+* **Send errors are not immediate**: If the channel is closed, the task may still attempt to send. The exception (e.g., `ChannelClosed`) will be raised **within the task**, not synchronously.
+* **Potential race with close**: It's possible that `ch << value` is scheduled before `close(ch)` but executes after. In such cases, the value **may still be delivered** even after closure.
+* This behavior is **intentional**: It provides performance and flexibility similar to actor-style fire-and-forget systems. If strict send guarantees are required, use `await ch.send(value)` instead.
 
 ---
 
@@ -66,9 +71,8 @@ This form **blocks the current coroutine** until a value is available.
 
 If the channel is:
 
-* **Buffered with values** → returns immediately
-* **Unbuffered** → waits until a value is sent
-* **Empty and closed** → returns the `CLOSED` sentinel
+* **Closed but not empty** → Waits until the value is available.
+* **Empty and closed** → returns (None,False) tuple
 * **Nil** → blocks forever
 
 ### Example
